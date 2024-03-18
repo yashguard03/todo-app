@@ -12,7 +12,6 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     setTodo: (state, action) => {
-      console.log(action.payload);
       state.tasks.splice(0, 0, action.payload);
     },
   },

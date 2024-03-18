@@ -19,8 +19,25 @@
   padding: 100px 0 !important;
 }
 
+.wp-90 {
+  min-width: 90% !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.common-box-shadow {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+
 .transition {
   transition: all 0.3s;
+}
+
+table {
+  border-collapse: separate !important;
+  border-spacing: 0px 15px !important;
 }
 
 .add-button:hover {
