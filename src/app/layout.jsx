@@ -1,5 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import "remixicon/fonts/remixicon.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Providers from "./reducer/provider";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -14,7 +17,9 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 };

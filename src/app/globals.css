@@ -1,0 +1,29 @@
+.todo-box {
+  width: 500px;
+  height: 50vh;
+}
+
+.fs-14 {
+  font-size: 14px !important;
+}
+
+.fs-16 {
+  font-size: 16px !important;
+}
+
+.fs-18 {
+  font-size: 18px !important;
+}
+
+.paddingY {
+  padding: 100px 0 !important;
+}
+
+.transition {
+  transition: all 0.3s;
+}
+
+.add-button:hover {
+  color: black !important;
+  transform: rotate(90deg);
+}
