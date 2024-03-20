@@ -13,8 +13,6 @@ const Todo = () => {
   const dispatch = useDispatch();
   const { tasks } = useSelector((store) => store.todo);
 
-  console.log(tasks);
-
   const todoSchema = object({
     taskName: string().required("Please enter the list"),
   });
@@ -110,7 +108,9 @@ const Todo = () => {
               ? tasks?.map((ele, index) => {
                   return (
                     <tr key={index}>
-                      <td className={`ps-3 py-3 rounded-start-5 bg-white`}>
+                      <td
+                        className={`ps-3 py-3 rounded-start-5 bg-white w-100`}
+                      >
                         <span
                           className={`text-capitalize text-truncate fs-18 fw-semibold d-block`}
                         >
@@ -124,10 +124,12 @@ const Todo = () => {
                           ></i>
                         </button>
                       </td>
-                      <td className={`ps-3 py-3 text-center rounded-end-5`}>
+                      <td
+                        className={`ps-3 py-3 text-center rounded-end-5 pe-3`}
+                      >
                         <button className={`btn p-0 border-0`}>
                           <i
-                            className={`ri-file-edit-fill text-primary cursor-pointer fs-5 fw-medium`}
+                            className={`ri-pencil-fill text-primary cursor-pointer fs-5 fw-medium`}
                           ></i>
                         </button>
                       </td>
