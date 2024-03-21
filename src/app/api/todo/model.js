@@ -7,6 +7,6 @@ const todoSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// todoSchema.index({ createdAt: -1 });
+
 export const todoModel =
   mongoose.models.todo || mongoose.model("todo", todoSchema);

@@ -1,7 +1,7 @@
 import { connectDb } from "@/helpers/db";
 import { NextResponse } from "next/server";
 import { todoModel } from "./model";
-import Joi from "joi";
+import validate from "./validate.js";
 import {
   errorResponse,
   successResponse,
@@ -16,39 +16,23 @@ export const GET = async () => {
   });
 };
 
-export const POST = async (req) => {
-  try {
-    const { taskName } = await req.json();
+export const POST = (req) => {
+  return validate.createTodo(req, async () => {
+    try {
+      const { taskName } = await req.json();
 
-    const schema = Joi.object({
-      taskName: Joi.string().min(3).max(20).required(),
-    });
+      const createdTodo = await todoModel.create({ taskName });
+      const allTodo = await todoModel.find({}).sort({ createdAt: -1 });
+      const count = await todoModel.countDocuments();
 
-    const { error } = schema.validate({ taskName });
-
-    if (error) {
-      return validateResponse({ error });
+      return successResponse({
+        message: "Task has been created successfully",
+        date: createdTodo,
+        availableTodo: allTodo,
+        count,
+      });
+    } catch (error) {
+      return errorResponse({ error });
     }
-
-    const newTodo = await todoModel.create({ taskName }); // Use Mongoose's create method
-
-    const todos = await todoModel.find({}).sort({ createdAt: -1 }); // Use Mongoose's find method
-
-    const count = await todoModel.countDocuments(); // Use Mongoose's countDocuments method
-
-    return NextResponse.json({
-      success: true,
-      message: "Task has been created successfully",
-      task: todos,
-      count,
-    });
-  } catch (error) {
-    console.log(error.code);
-    return errorResponse({ error });
-    // return NextResponse.json({
-    //   success: false,
-    //   message: "Failed to create a todo",
-    //   error: error.message,
-    // });
-  }
+  });
 };
