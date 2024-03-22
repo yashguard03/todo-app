@@ -3,7 +3,7 @@ import { validateResponse } from "@/helpers/apiResponse";
 
 class validate {
   static createTodo = async (req, next) => {
-    const { taskName } = await req.json();
+    const { taskName } = await req;
     const schema = Joi.object({
       taskName: Joi.string().min(3).max(20).required(),
     });

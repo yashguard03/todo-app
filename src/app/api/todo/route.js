@@ -1,13 +1,9 @@
+connectDb();
 import { connectDb } from "@/helpers/db";
 import { NextResponse } from "next/server";
 import { todoModel } from "./model";
 import validate from "./validate.js";
-import {
-  errorResponse,
-  successResponse,
-  validateResponse,
-} from "@/helpers/apiResponse";
-connectDb();
+import { errorResponse, successResponse } from "@/helpers/apiResponse";
 
 export const GET = async () => {
   return NextResponse.json({
@@ -16,10 +12,11 @@ export const GET = async () => {
   });
 };
 
-export const POST = (req) => {
-  return validate.createTodo(req, async () => {
+export const POST = async (req) => {
+  const request = await req.json();
+  return validate.createTodo(request, async () => {
     try {
-      const { taskName } = await req.json();
+      const { taskName } = await request;
 
       const createdTodo = await todoModel.create({ taskName });
       const allTodo = await todoModel.find({}).sort({ createdAt: -1 });
