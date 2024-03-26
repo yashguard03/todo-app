@@ -5,13 +5,14 @@ import { Col, Container, Form, Row, Table } from "react-bootstrap";
 import { object, string } from "yup";
 import { debounce } from "lodash";
 import { useDispatch } from "react-redux";
-import { setTodo } from "../reducer/todo/todoSlice";
 import { useSelector } from "react-redux";
+import { setTodo } from "@/store/todo/slice";
+import { getTodo } from "@/store/actions";
 
 const Todo = () => {
   const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
-  const { tasks } = useSelector((store) => store.todo);
+  const { tasks } = useSelector((store) => store.Todo);
 
   const todoSchema = object({
     taskName: string().required("Please enter the list"),
@@ -31,6 +32,13 @@ const Todo = () => {
       }, 500);
     },
   });
+
+  useEffect(() => {
+    (async () => {
+      const response = await dispatch(getTodo());
+      console.log(response);
+    })();
+  }, [dispatch]);
   return (
     <div className={`py-5 vh-100 bg-secondary bg-opacity-25`}>
       <Container>

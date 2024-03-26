@@ -1,4 +1,4 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   loading: false,
@@ -7,8 +7,8 @@ const initialState = {
   tasks: [],
 };
 
-const todoSlice = createSlice({
-  name: "todoSlice",
+const slice = createSlice({
+  name: "Todo",
   initialState,
   reducers: {
     setTodo: (state, action) => {
@@ -17,5 +17,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { setTodo } = todoSlice.actions;
-export default todoSlice.reducer;
+export const { setTodo } = slice.actions;
+export default slice.reducer;

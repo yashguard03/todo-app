@@ -1,9 +1,8 @@
 connectDb();
-import { connectDb } from "@/helpers/db";
-import { NextResponse } from "next/server";
+import { connectDb } from "@/helpers/server/db";
 import { todoModel } from "./model";
 import validate from "./validate.js";
-import { errorResponse, successResponse } from "@/helpers/apiResponse";
+import { errorResponse, successResponse } from "@/helpers/server/apiResponse";
 
 // Get all todo's
 export const GET = async () => {

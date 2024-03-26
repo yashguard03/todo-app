@@ -2,7 +2,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Providers from "./reducer/provider";
+import Providers from "@/store/provider";
 
 const inter = Poppins({
   subsets: ["latin"],

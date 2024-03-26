@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { validateResponse } from "@/helpers/apiResponse";
+import { validateResponse } from "@/helpers/server/apiResponse";
 
 class validate {
   static createTodo = async (req, next) => {
