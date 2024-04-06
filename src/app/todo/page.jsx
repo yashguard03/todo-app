@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setTodo } from "@/store/todo/slice";
 import { getTodo } from "@/store/actions";
+import JustForPractice from "@/components/JustForPractice";
 
 const Todo = () => {
   const [validated, setValidated] = useState(false);
@@ -41,7 +42,8 @@ const Todo = () => {
   }, [dispatch]);
   return (
     <div className={`py-5 vh-100 bg-secondary bg-opacity-25`}>
-      <Container>
+      <JustForPractice />
+      {/* <Container>
         <Row className={`align-items-center justify-content-between`}>
           <Col lg={4}>
             <Form validated={validated} onSubmit={validation.handleSubmit}>
@@ -76,39 +78,6 @@ const Todo = () => {
               ) : null}
             </Form>
           </Col>
-          {/* <Col lg={4}>
-            <Form validated={validated} onSubmit={validation.handleSubmit}>
-              <div className={`position-relative`}>
-                <Form.Control
-                  name="taskName"
-                  type="text"
-                  placeholder="Enter the todo list"
-                  className={`fs-16 fw-semibold border border-2 rounded-3`}
-                  onChange={validation.handleChange}
-                  onBlur={validation.handleBlur}
-                  value={validation.values.taskName}
-                />
-                <button
-                  type="submit"
-                  className={`border-0 btn p-0 text-capitalize fs-14 fw-semibold position-absolute end-0 top-0 h-100 pe-2`}
-                >
-                  <i
-                    className={`${
-                      validated ? "d-none" : "d-block"
-                    } ri-add-line fs-5 fw-bold add-button text-dark text-opacity-75 transition`}
-                  ></i>
-                </button>
-              </div>
-              {validation.errors.taskName && validation.touched.taskName ? (
-                <p
-                  className={`text-capitalize text-danger fw-semibold fs-14 ms-1 mt-1`}
-                  style={{ fontSize: "13px" }}
-                >
-                  {validation.errors.taskName}
-                </p>
-              ) : null}
-            </Form>
-          </Col> */}
         </Row>
         <Table className={`mt-5 mb-3 align-middle`} responsive>
           <tbody>
@@ -147,14 +116,7 @@ const Todo = () => {
               : null}
           </tbody>
         </Table>
-        {/* <Row
-          className={`common-box-shadow border rounded-4 py-3 mt-5 bg-white`}
-        >
-          <Col lg={6} className={``}>
-            <span className={`d-block bg-danger`}>Yash</span>
-          </Col>
-        </Row> */}
-      </Container>
+      </Container> */}
     </div>
   );
 };
