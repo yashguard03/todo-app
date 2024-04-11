@@ -7,8 +7,8 @@ import { debounce } from "lodash";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setTodo } from "@/store/todo/slice";
-import { getTodo } from "@/store/actions";
-import JustForPractice from "@/components/JustForPractice";
+// import { getTodo } from "@/store/actions";
+// import JustForPractice from "@/components/JustForPractice";
 
 const Todo = () => {
   const [validated, setValidated] = useState(false);
@@ -34,16 +34,15 @@ const Todo = () => {
     },
   });
 
-  useEffect(() => {
-    (async () => {
-      const response = await dispatch(getTodo());
-      console.log(response);
-    })();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   (async () => {
+  //     const response = await dispatch(getTodo());
+  //     console.log(response);
+  //   })();
+  // }, [dispatch]);
   return (
     <div className={`py-5 vh-100 bg-secondary bg-opacity-25`}>
-      <JustForPractice />
-      {/* <Container>
+      <Container>
         <Row className={`align-items-center justify-content-between`}>
           <Col lg={4}>
             <Form validated={validated} onSubmit={validation.handleSubmit}>
@@ -116,7 +115,7 @@ const Todo = () => {
               : null}
           </tbody>
         </Table>
-      </Container> */}
+      </Container>
     </div>
   );
 };

@@ -62,47 +62,6 @@ table {
   width: fit-content !important;
 }
 
-/* .text-hover-animation-effect {
-  transition: transform 1s ease !important;
-  color: #ffffff !important;
-  fill: #ffffff !important;
-}
-
-.text-hover-animation-effect:hover {
-  transform: scale(0.9) !important;
-}
-
-.text-hover-animation-effect .outer {
-  transition: transform 1s ease !important;
-  transform: translateY(100%) !important;
-}
-
-.text-hover-animation-effect .inner {
-  display: inline-block !important;
-  transition: transform 1s ease !important;
-  transform: translateY(-100%) !important;
-  color: #cb9274 !important;
-  fill: #cb9274 !important;
-}
-
-.text-hover-animation-effect:hover .inner,
-.text-hover-animation-effect:hover .outer {
-  transform: none !important;
-} */
-
-/* .text-hover-animation-effect .outer {
-  transition: top 1s ease !important;
-} */
-
-/* .text-hover-animation-effect .inner {
-  top: 10% !important;
-  transition: top 1s ease !important;
-} */
-
-/* .text-hover-animation-effect:hover .outer {
-  top: 0 !important;
-} */
-
 .fill-text-hover-parent .fill-text-hover {
   position: relative;
   margin: 0;
@@ -114,6 +73,10 @@ table {
 
 .fill-text-hover-parent:hover .fill-text-hover {
   transform: scale(0.9);
+}
+
+.fill-text-hover-parent .content {
+  z-index: -1;
 }
 
 .fill-text-hover-parent .fill-text-hover:before {
